@@ -1,11 +1,52 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:MyRestaurantApp"
-             x:Class="MyRestaurantApp.MainPage">
+             x:Class="MyRestaurantApp.MainPage"
+                  xmlns:circle="clr-namespace:CachedImageCircle.Forms.Plugin.Abstractions;assembly=CachedImageCircle.Forms.Plugin.Abstractions">
+  <MasterDetailPage.Master>
+    <ContentPage Title="Menú">
+      <StackLayout>
+        <StackLayout BackgroundColor="#424242" Padding="15">
+          <circle:CircleCachedImage x:Name="cimgUsuario"
+                              Aspect="AspectFit"
+                              HeightRequest="130"
+                              Source="account_circle.png"
+                              WidthRequest="130"
+                              Margin="20"/>
+          <Label x:Name="lblUsuario"
+                 HorizontalOptions="Center"
+                 Text="Usuario"
+                 Style="{DynamicResource SubtitleStyle}"
+                 TextColor="#F0F0F0"/>
+        </StackLayout>
+        <ListView x:Name="lstMenu" SeparatorVisibility="None" HeightRequest="220">
+          <ListView.ItemTemplate>
+            <DataTemplate>
+              <ViewCell>
+                <StackLayout Orientation="Horizontal" Spacing="30">
+                  <Image Source="{Binding Image}" Aspect="AspectFit" Margin="15, 5, 0, 0" VerticalOptions="Center"></Image>
+                  <Label Text="{Binding Text}" VerticalOptions="Center" FontFamily="sans-serif-light bold" Margin="0, 5, 0, 0"></Label>
+                </StackLayout>
+              </ViewCell>
+            </DataTemplate>
+          </ListView.ItemTemplate>
+        </ListView>
+        <BoxView HeightRequest="1" WidthRequest="150" BackgroundColor="#D0D0D0"></BoxView>
+        <ListView x:Name="lstSeccionInferior" SeparatorVisibility="None">
+          <ListView.ItemTemplate>
+            <DataTemplate>
+              <ViewCell>
+                <StackLayout Orientation="Horizontal" Spacing="30">
+                  <Image Source="{Binding Image}" Aspect="AspectFit" Margin="15, 5, 0, 0" VerticalOptions="Center"></Image>
+                  <Label Text="{Binding Text}" VerticalOptions="Center" FontFamily="sans-serif-light bold" Margin="0, 5, 0, 0"></Label>
+                </StackLayout>
+              </ViewCell>
+            </DataTemplate>
+          </ListView.ItemTemplate>
+        </ListView>
+      </StackLayout>
+    </ContentPage>
+  </MasterDetailPage.Master>
 
-  <Label Text="Welcome to Xamarin Forms!"
-           VerticalOptions="Center"
-           HorizontalOptions="Center" />
-
-</ContentPage>
+</MasterDetailPage>

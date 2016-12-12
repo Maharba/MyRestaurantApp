@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyRestaurantApp.Views.PlatillosPage"
+             xmlns:crdView="clr-namespace:Flipper.Controls;assembly=Flipper"
+             xmlns:ffimage="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:sfrating="clr-namespace:Syncfusion.SfRating.XForms;assembly=Syncfusion.SfRating.XForms"
+             xmlns:converters="clr-namespace:MyRestaurantApp.Converters;assembly=MyRestaurantApp"
+             Title="Paninis"
+             BackgroundColor="#f1f1f1f1">
+  <ContentPage.ToolbarItems>
+    <ToolbarItem x:Name="tbiCart" Icon="cart.png"></ToolbarItem>
+  </ContentPage.ToolbarItems>
+  <ContentPage.Resources>
+    <ResourceDictionary>
+      <converters:DoubleMoneyConverter x:Key="DoubleMoneyConverter"></converters:DoubleMoneyConverter>
+    </ResourceDictionary>
+  </ContentPage.Resources>
+  <ListView x:Name="lstPlatillos" RowHeight="350" SeparatorVisibility="None">
+    <ListView.ItemTemplate>
+      <DataTemplate>
+        <ViewCell>
+          <crdView:CardContentView Margin="5" BackgroundColor="White">
+            <Grid>
+              <Grid.RowDefinitions>
+                <RowDefinition Height="6*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="2*"></RowDefinition>
+              </Grid.RowDefinitions>
+              <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+              </Grid.ColumnDefinitions>
+              <ffimage:CachedImage Grid.ColumnSpan="2" DownsampleToViewSize="True" Source="{Binding Imagen}" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"></ffimage:CachedImage>
+              <Label Grid.Row="1" Text="{Binding Nombre}" FontSize="28">
+                <Label.FontFamily>
+                  <OnPlatform x:TypeArguments="x:String">
+                    <OnPlatform.Android>LumniaRegular.ttf#LumniaRegular</OnPlatform.Android>
+                  </OnPlatform>
+                </Label.FontFamily>
+              </Label>
+              <Label Grid.Row="2" Text="{Binding Descripcion}"></Label>
+              <Label Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" Text="{Binding Precio, Converter={StaticResource DoubleMoneyConverter}}" FontSize="22" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
+            </Grid>
+          </crdView:CardContentView>
+        </ViewCell>
+      </DataTemplate>
+    </ListView.ItemTemplate>
+  </ListView>
+</ContentPage>

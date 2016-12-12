@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyRestaurantApp.Pages.CategoriasPage"
+             xmlns:circle="clr-namespace:CachedImageCircle.Forms.Plugin.Abstractions;assembly=CachedImageCircle.Forms.Plugin.Abstractions"
+             Title="Inicio"
+             BackgroundImage="back.jpg">
+  <ContentPage.ToolbarItems>
+    <ToolbarItem x:Name="tbiCart" Icon="cart.png"></ToolbarItem>
+  </ContentPage.ToolbarItems>
+  <ContentPage.Resources>
+    <ResourceDictionary>
+      <Style x:Key="lblCategoriasStyle" TargetType="Label">
+        <Setter Property="HorizontalTextAlignment" Value="Center"></Setter>
+        <Setter Property="VerticalTextAlignment" Value="Center"></Setter>
+        <Setter Property="FontSize" Value="18"></Setter>
+        <Setter Property="TextColor" Value="#ffffff"></Setter>
+      </Style>
+    </ResourceDictionary>
+  </ContentPage.Resources>
+  <ScrollView Padding="15">
+    <Grid RowSpacing="15" x:Name="grdMain">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition></ColumnDefinition>
+        <ColumnDefinition></ColumnDefinition>
+      </Grid.ColumnDefinitions>
+      <Grid.RowDefinitions>
+        <RowDefinition></RowDefinition>
+        <RowDefinition></RowDefinition>
+        <RowDefinition></RowDefinition>
+        <RowDefinition></RowDefinition>
+        <RowDefinition></RowDefinition>
+        <RowDefinition></RowDefinition>
+      </Grid.RowDefinitions>
+      <Label Grid.ColumnSpan="2" Text="- Menu -" TextColor="#ffffff" FontSize="80" HorizontalTextAlignment="Center" VerticalTextAlignment="Center">
+        <Label.FontFamily>
+          <OnPlatform x:TypeArguments="x:String">
+            <OnPlatform.Android>trendsetter-Regular.ttf#trendsetter-Regular</OnPlatform.Android>
+          </OnPlatform>
+        </Label.FontFamily>
+      </Label>
+      <StackLayout Grid.Row="1" VerticalOptions="Center" HorizontalOptions="Start">
+        <circle:CircleCachedImage x:Name="crcPaninis" Source="a19.jpg" HorizontalOptions="Center"></circle:CircleCachedImage>
+        <Label Style="{StaticResource lblCategoriasStyle}" Text="Paninis">
+
+        </Label>
+      </StackLayout>
+      <StackLayout Grid.Column="1" Grid.Row="1" VerticalOptions="Center" HorizontalOptions="Start">
+        <circle:CircleCachedImage Source="a4.jpg" HorizontalOptions="Center"></circle:CircleCachedImage>
+        <Label Style="{StaticResource lblCategoriasStyle}" Text="Quesabrosas">
+
+        </Label>
+      </StackLayout>
+
+      <StackLayout Grid.Row="2" VerticalOptions="Center" HorizontalOptions="Start">
+        <circle:CircleCachedImage Source="a13.jpg" HorizontalOptions="Center"></circle:CircleCachedImage>
+        <Label Style="{StaticResource lblCategoriasStyle}" Text="Postres">
+
+        </Label>
+      </StackLayout>
+      <StackLayout Grid.Column="1" Grid.Row="2" VerticalOptions="Center" HorizontalOptions="Start">
+        <circle:CircleCachedImage Source="a10.jpg" HorizontalOptions="Center"></circle:CircleCachedImage>
+        <Label Style="{StaticResource lblCategoriasStyle}" Text="Bebidas">
+
+        </Label>
+      </StackLayout>
+
+
+
+      <StackLayout Grid.Row="3" VerticalOptions="Center" HorizontalOptions="Start">
+        <circle:CircleCachedImage Source="a2.jpg" HorizontalOptions="Center"></circle:CircleCachedImage>
+        <Label Style="{StaticResource lblCategoriasStyle}" Text="Gyros">
+
+        </Label>
+      </StackLayout>
+      <StackLayout Grid.Column="1" Grid.Row="3" VerticalOptions="Center" HorizontalOptions="Start">
+        <circle:CircleCachedImage Source="a22.jpg" HorizontalOptions="Center"></circle:CircleCachedImage>
+        <Label Style="{StaticResource lblCategoriasStyle}" Text="Crepizzas">
+
+        </Label>
+      </StackLayout>
+
+      <StackLayout Grid.Row="4" VerticalOptions="Center" HorizontalOptions="Start">
+        <circle:CircleCachedImage Source="a3.jpg" HorizontalOptions="Center"></circle:CircleCachedImage>
+        <Label Style="{StaticResource lblCategoriasStyle}" Text="Sandwichs">
+
+        </Label>
+      </StackLayout>
+      <StackLayout Grid.Column="1" Grid.Row="4" VerticalOptions="Center" HorizontalOptions="Start">
+        <circle:CircleCachedImage Source="a8.jpg" HorizontalOptions="Center"></circle:CircleCachedImage>
+        <Label Style="{StaticResource lblCategoriasStyle}" Text="Frapuccinos">
+
+        </Label>
+      </StackLayout>
+
+      <StackLayout Grid.Row="5" VerticalOptions="Center" HorizontalOptions="Start">
+        <circle:CircleCachedImage Source="a21.jpg" HorizontalOptions="Center"></circle:CircleCachedImage>
+        <Label Style="{StaticResource lblCategoriasStyle}" Text="Crepas">
+
+        </Label>
+      </StackLayout>
+      <StackLayout Grid.Column="1" Grid.Row="5" VerticalOptions="Center" HorizontalOptions="Start">
+        <circle:CircleCachedImage Source="a18.jpg" HorizontalOptions="Center"></circle:CircleCachedImage>
+        <Label Style="{StaticResource lblCategoriasStyle}" Text="Desayunos">
+
+        </Label>
+      </StackLayout>
+
+    </Grid>
+  </ScrollView>
+</ContentPage>

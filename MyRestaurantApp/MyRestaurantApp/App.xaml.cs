@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using MyRestaurantApp.Pages;
 using Xamarin.Forms;
 
 namespace MyRestaurantApp
@@ -13,7 +13,7 @@ namespace MyRestaurantApp
         {
             InitializeComponent();
 
-            MainPage = new MyRestaurantApp.MainPage();
+            MainPage = new IntroPage();
         }
 
         protected override void OnStart()

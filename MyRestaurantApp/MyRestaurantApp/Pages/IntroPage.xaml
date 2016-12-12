@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyRestaurantApp.Pages.IntroPage"
+             xmlns:carousel="clr-namespace:CarouselView.FormsPlugin.Abstractions;assembly=CarouselView.FormsPlugin.Abstractions"
+             BackgroundImage="back.jpg">
+  <ContentPage.Resources>
+    <ResourceDictionary>
+      <Style x:Key="BaseSocialButtonStyle" TargetType="Button">
+        <Setter Property="BorderRadius" Value="1"></Setter>
+        <Setter Property="Margin" Value="5, 2"></Setter>
+      </Style>
+      <Style x:Key="buttonFacebookStyle" TargetType="Button" BaseResourceKey="BaseSocialButtonStyle">
+        <Setter Property="BackgroundColor" Value="#3C5A9A"></Setter>
+        <Setter Property="Text" Value="Entrar con Facebook"></Setter>
+        <Setter Property="FontSize" Value="16"></Setter>
+        <Setter Property="FontAttributes" Value="Bold"></Setter>
+        <Setter Property="TextColor" Value="#ffffff"></Setter>
+      </Style>
+      <Style x:Key="buttonGoogleStyle" TargetType="Button" BaseResourceKey="BaseSocialButtonStyle">
+        <Setter Property="BackgroundColor" Value="#dd4b39"></Setter>
+        <Setter Property="Text" Value="Entrar con Google"></Setter>
+        <Setter Property="TextColor" Value="#ffffff"></Setter>
+      </Style>
+    </ResourceDictionary>
+  </ContentPage.Resources>
+  <Grid>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="5*"></RowDefinition>
+      <RowDefinition Height="2*"></RowDefinition>
+      <RowDefinition Height="*"></RowDefinition>
+    </Grid.RowDefinitions>
+    <Label FontSize="90" FontAttributes="Bold" TextColor="#ffffff" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Text="Canephora">
+      <Label.FontFamily>
+        <OnPlatform x:TypeArguments="x:String">
+          <OnPlatform.Android>trendsetter-Regular.ttf#trendsetter-Regular</OnPlatform.Android>
+        </OnPlatform>
+      </Label.FontFamily>
+    </Label>
+    <carousel:CarouselViewControl Grid.Row="1" x:Name="crsIntro">
+      <carousel:CarouselViewControl.ItemTemplate>
+        <DataTemplate>
+          <Grid>
+            <Grid.RowDefinitions>
+              <RowDefinition Height="2*"></RowDefinition>
+              <RowDefinition></RowDefinition>
+              <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Image Source="{Binding Image}" HorizontalOptions="Center"></Image>
+            <Label Grid.Row="1" Style="{DynamicResource SubtitleStyle}" TextColor="#ffffff" FontAttributes="Bold"
+                   VerticalTextAlignment="Center"
+                   HorizontalTextAlignment="Center"
+                   Text="{Binding Text}">
+            </Label>
+            <Label Grid.Row="2" Style="{DynamicResource CaptionStyle}" TextColor="#ffffff"
+                   VerticalTextAlignment="Start"
+                   HorizontalTextAlignment="Center"
+                   Text="{Binding Detail}">
+            </Label>
+          </Grid>
+        </DataTemplate>
+      </carousel:CarouselViewControl.ItemTemplate>
+    </carousel:CarouselViewControl>
+
+    <Button Grid.Row="2" x:Name="btnLoginFacebook" Style="{StaticResource buttonFacebookStyle}" Image="fb_btn.jpg"></Button>
+  </Grid>
+</ContentPage>
